@@ -1,0 +1,951 @@
+{
+	"info": {
+		"_postman_id": "55b0dad8-5f14-48ae-be40-cdba0a008cb5",
+		"name": "casamentoAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18095850",
+		"_collection_link": "https://dark-trinity-927400.postman.co/workspace/jpaspring~7b9f071f-f2af-4120-b580-7ba92b87430b/collection/18095850-55b0dad8-5f14-48ae-be40-cdba0a008cb5?action=share&source=collection_link&creator=18095850"
+	},
+	"item": [
+		{
+			"name": "casamento",
+			"item": [
+				{
+					"name": "GetAllCasamento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/casamentos?page=0&linesPerPage=12&direction=ASC&orderBy=local",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"casamentos"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "linesPerPage",
+									"value": "12"
+								},
+								{
+									"key": "direction",
+									"value": "ASC"
+								},
+								{
+									"key": "orderBy",
+									"value": "local"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCasamentoById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/casamentos/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"casamentos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InsertCasamento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"data\": \"2024-12-06\",\r\n    \"local\": \"Praia do Forte\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/casamentos",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"casamentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "atualizarCasamentoETema",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"idTema\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/casamentos/1/tema",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"casamentos",
+								"1",
+								"tema"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCasamento",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": \"18/11/2024\",\r\n    \"local\": \"Rua joaquim Da Silva\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/casamento/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"casamento",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCasamento",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/casamento/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"casamento",
+								"1"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "convite",
+			"item": [
+				{
+					"name": "GetAllConvite",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/convites?page=0&linesPerPage=12&direction=ASC&orderBy=statusEnvio",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"convites"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "linesPerPage",
+									"value": "12"
+								},
+								{
+									"key": "direction",
+									"value": "ASC"
+								},
+								{
+									"key": "orderBy",
+									"value": "statusEnvio"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getConviteById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/convites/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"convites",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InsertConvite",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"casamento\":{\r\n        \"id\": 1\r\n    },\r\n    \"status\": \"PENDENTE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/convites",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"convites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateConvite",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"casamento\":{\r\n        \"id\": 2\r\n    },\r\n    \"status\": \"ACEITO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/convites/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"convites",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteConvite",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/convites/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"convites",
+								"1"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CONVIDADOS",
+			"item": [
+				{
+					"name": "GetAllConvidado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/convidados?page=0&linesPerPage=12&direction=ASC&orderBy=nome",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"convidados"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "linesPerPage",
+									"value": "12"
+								},
+								{
+									"key": "direction",
+									"value": "ASC"
+								},
+								{
+									"key": "orderBy",
+									"value": "nome"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getConvidadoById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/convidados/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"convidados",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InsertConvidado",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Natã\",\r\n    \"email\": \"teste@email,com\",\r\n    \"convite\":{\r\n        \"id\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/convidados",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"convidados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateConvidado",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"casamento\":{\r\n        \"id\": 2\r\n    },\r\n    \"status\": \"ACEITO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/convidados/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"convidados",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteConvidado",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/convidados/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"convidados",
+								"1"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "fornecedores",
+			"item": [
+				{
+					"name": "GetAllFornecedores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/fornecedores?page=0&linesPerPage=12&direction=ASC&orderBy=nome",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"fornecedores"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "linesPerPage",
+									"value": "12"
+								},
+								{
+									"key": "direction",
+									"value": "ASC"
+								},
+								{
+									"key": "orderBy",
+									"value": "nome"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getFornecedoresById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/fornecedores/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"fornecedores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InsertFornecedores",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Natã\",\r\n    \"email\": \"teste@email,com\",\r\n    \"convite\":{\r\n        \"id\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/fornecedores",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"fornecedores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateFornecedores",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"casamento\":{\r\n        \"id\": 2\r\n    },\r\n    \"status\": \"ACEITO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/fornecedores/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"fornecedores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteFornecedores",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/fornecedores/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"fornecedores",
+								"1"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "orcamento",
+			"item": [
+				{
+					"name": "GetAllOrcamento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/orcamentos?page=0&linesPerPage=12&direction=ASC&orderBy=local",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"orcamentos"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "linesPerPage",
+									"value": "12"
+								},
+								{
+									"key": "direction",
+									"value": "ASC"
+								},
+								{
+									"key": "orderBy",
+									"value": "local"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOrcamentoById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/orcamentos/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"orcamentos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InsertOrcamento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"casamento\":{\r\n        \"id\": 1\r\n    },\r\n    \"status\": \"PENDENTE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/orcamentos",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"orcamentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateConvite Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"casamento\":{\r\n        \"id\": 2\r\n    },\r\n    \"status\": \"ACEITO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/orcamentos/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"orcamentos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteConvite Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/orcamentos/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"orcamentos",
+								"1"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tema",
+			"item": [
+				{
+					"name": "GetAllTema",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/temas?page=0&linesPerPage=12&direction=ASC&orderBy=nome",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"temas"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "linesPerPage",
+									"value": "12"
+								},
+								{
+									"key": "direction",
+									"value": "ASC"
+								},
+								{
+									"key": "orderBy",
+									"value": "nome"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTemaPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/temas/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"temas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InsertTema",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Tema Elegante\",\r\n    \"descricao\": \"Descrição do tema elegante\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/temas",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"temas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutTema",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/temas/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"temas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/temas/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"temas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
