@@ -1,5 +1,6 @@
 package com.tcc.casamento.services.convite;
 
+import com.tcc.casamento.dtos.convidado.ConvidadoDTO;
 import com.tcc.casamento.dtos.convite.ConviteDTO;
 import com.tcc.casamento.entities.convidado.Convidado;
 import com.tcc.casamento.entities.convite.Convite;
@@ -14,6 +15,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class ConviteService {
@@ -66,6 +70,26 @@ public class ConviteService {
             throw new DatabaseException("Falha de integridade referencial");
         }
     }
+
+    @Transactional
+    public ConviteDTO atualizarConvidados(Long idConvite, Set<ConvidadoDTO> convidadosDTO) {
+        Convite entity = conviteRepository.findById(idConvite)
+                .orElseThrow(() -> new ResourceNotFoundException("Convite não encontrado com ID: " + idConvite));
+
+
+        final Convite finalEntity = entity;
+
+        Set<Convidado> convidados = convidadosDTO.stream()
+                .map(dto -> new Convidado(dto.getNome(), dto.getStatusRSVP(), finalEntity))
+                .collect(Collectors.toSet());
+
+        entity.getConvidados().clear();
+        entity.getConvidados().addAll(convidados);
+        entity = conviteRepository.save(entity);
+
+        return new ConviteDTO(entity);
+    }
+
 
     private void copyDtoToEntity(ConviteDTO dto, Convite entity) {
         entity.setStatusEnvio(dto.getStatusEnvio());

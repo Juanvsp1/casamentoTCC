@@ -1,6 +1,8 @@
 package com.tcc.casamento.services.casamento;
 
 import com.tcc.casamento.dtos.casamento.CasamentoDTO;
+import com.tcc.casamento.dtos.fornecedor.FornecedorDTO;
+import com.tcc.casamento.dtos.orcamento.OrcamentoDTO;
 import com.tcc.casamento.dtos.tema.TemaDTO;
 import com.tcc.casamento.entities.casamento.Casamento;
 import com.tcc.casamento.entities.convidado.Convidado;
@@ -9,6 +11,8 @@ import com.tcc.casamento.entities.fornecedor.Fornecedor;
 import com.tcc.casamento.entities.orcamento.Orcamento;
 import com.tcc.casamento.entities.tema.Tema;
 import com.tcc.casamento.repositories.casamento.CasamentoRepository;
+import com.tcc.casamento.repositories.fornecedor.FornecedorRepository;
+import com.tcc.casamento.repositories.orcamento.OrcamentoRepository;
 import com.tcc.casamento.repositories.tema.TemaRepository;
 import com.tcc.casamento.services.exception.DatabaseException;
 import com.tcc.casamento.services.exception.ResourceNotFoundException;
@@ -22,6 +26,8 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -33,8 +39,14 @@ public class CasamentoService {
     @Autowired
     private TemaRepository temaRepository;
 
+    @Autowired
+    private OrcamentoRepository orcamentoRepository;
+
+    @Autowired
+    private FornecedorRepository fornecedorRepository;
+
     @Transactional(readOnly = true)
-    public Page<CasamentoDTO> findAllPaged(Pageable pageable) {
+    public Page<CasamentoDTO> findAll(Pageable pageable) {
         Page<Casamento> list = casamentoRepository.findAll(pageable);
         return list.map(entity -> new CasamentoDTO(entity, entity.getFornecedores(),entity.getOrcamento() ,entity.getTema(), entity.getConvites()));
     }
@@ -101,6 +113,46 @@ public class CasamentoService {
 
         // Retorna o DTO atualizado
         return new CasamentoDTO(entity, entity.getFornecedores(),entity.getOrcamento() ,entity.getTema(), entity.getConvites());
+    }
+
+    @Transactional
+    public CasamentoDTO atualizarFornecedores(Long id, Set<FornecedorDTO> fornecedoresDTO) {
+        Casamento entity = casamentoRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Casamento não encontrado com ID: " + id));
+
+        Set<Fornecedor> fornecedores = fornecedoresDTO.stream()
+                .map(dto -> fornecedorRepository.findById(dto.getIdFornecedor())
+                        .orElseThrow(() -> new ResourceNotFoundException("Fornecedor não encontrado com ID: " + dto.getIdFornecedor())))
+                .collect(Collectors.toSet());
+
+        entity.getFornecedores().clear();
+        entity.getFornecedores().addAll(fornecedores);
+
+        entity = casamentoRepository.save(entity);
+
+        return new CasamentoDTO(entity, entity.getFornecedores(), entity.getOrcamento(), entity.getTema(), entity.getConvites());
+    }
+
+    @Transactional
+    public CasamentoDTO atualizarOrcamento(Long id, OrcamentoDTO orcamentoDTO) {
+        // Busca o casamento no banco de dados
+        Casamento entity = casamentoRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Casamento não encontrado com ID: " + id));
+
+        // Valida e associa o orçamento
+        if (orcamentoDTO.getIdOrcamento() != null) {
+            Orcamento orcamento = orcamentoRepository.findById(orcamentoDTO.getIdOrcamento())
+                    .orElseThrow(() -> new ResourceNotFoundException("Orçamento não encontrado com ID: " + orcamentoDTO.getIdOrcamento()));
+            entity.setOrcamento(orcamento); // Atualiza o orçamento
+        } else {
+            entity.setOrcamento(null); // Permite remover o orçamento
+        }
+
+        // Salva a atualização no banco de dados
+        entity = casamentoRepository.save(entity);
+
+        // Retorna o DTO atualizado
+        return new CasamentoDTO(entity, entity.getFornecedores(), entity.getOrcamento(), entity.getTema(), entity.getConvites());
     }
 
     private void copyDtoToEntity(CasamentoDTO dto, Casamento entity) {

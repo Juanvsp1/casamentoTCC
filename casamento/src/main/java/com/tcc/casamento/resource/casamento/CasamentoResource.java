@@ -1,6 +1,8 @@
 package com.tcc.casamento.resource.casamento;
 
 import com.tcc.casamento.dtos.casamento.CasamentoDTO;
+import com.tcc.casamento.dtos.fornecedor.FornecedorDTO;
+import com.tcc.casamento.dtos.orcamento.OrcamentoDTO;
 import com.tcc.casamento.dtos.tema.TemaDTO;
 import com.tcc.casamento.services.casamento.CasamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.Map;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/casamentos")
@@ -27,7 +31,7 @@ public class CasamentoResource {
             @RequestParam(value = "direction", defaultValue = "ASC") String direction,
             @RequestParam(value = "orderBy", defaultValue = "local") String orderBy) {
         PageRequest pageRequest = PageRequest.of(page, linesPerPage, Sort.Direction.valueOf(direction), orderBy);
-        Page<CasamentoDTO> list = service.findAllPaged(pageRequest);
+        Page<CasamentoDTO> list = service.findAll(pageRequest);
         return ResponseEntity.ok().body(list);
     }
 
@@ -51,10 +55,30 @@ public class CasamentoResource {
         return ResponseEntity.ok().body(dto);
     }
 
+    /*
+        Metodo para relacionar, casamento com o tema
+    */
     @PutMapping("/{id}/tema")
     public ResponseEntity<CasamentoDTO> atualizarTema(
             @PathVariable Long id, @RequestBody TemaDTO temaDTO) {
         CasamentoDTO dto = service.atualizarTema(id, temaDTO);
+        return ResponseEntity.ok().body(dto);
+    }
+
+    @PutMapping("/{id}/fornecedores")
+    public ResponseEntity<CasamentoDTO> atualizarFornecedores(@PathVariable Long id, @RequestBody Set<FornecedorDTO> fornecedoresDTO) {
+        CasamentoDTO dto = service.atualizarFornecedores(id, fornecedoresDTO);
+        return ResponseEntity.ok().body(dto);
+    }
+
+    /*
+    Metodo de atualizar, para relacionar o casamento com o orcamento
+    */
+    @PutMapping("/{id}/orcamento")
+    public ResponseEntity<CasamentoDTO> atualizarOrcamento(
+            @PathVariable Long id,
+            @RequestBody OrcamentoDTO orcamentoDTO) {
+        CasamentoDTO dto = service.atualizarOrcamento(id, orcamentoDTO);
         return ResponseEntity.ok().body(dto);
     }
 

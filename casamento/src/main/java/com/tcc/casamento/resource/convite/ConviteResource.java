@@ -1,6 +1,7 @@
 package com.tcc.casamento.resource.convite;
 
 
+import com.tcc.casamento.dtos.convidado.ConvidadoDTO;
 import com.tcc.casamento.dtos.convite.ConviteDTO;
 import com.tcc.casamento.services.convite.ConviteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.Set;
 
 
 @RestController
@@ -50,6 +52,14 @@ public class ConviteResource {
     public ResponseEntity<ConviteDTO> updateConvite(@PathVariable Long id, @RequestBody ConviteDTO dto) {
         dto = service.update(id, dto);
         return ResponseEntity.ok().body(dto);
+    }
+
+    @PutMapping("/{idConvite}/convidados")
+    public ResponseEntity<ConviteDTO> atualizarConvidados(
+            @PathVariable Long idConvite,
+            @RequestBody Set<ConvidadoDTO> convidadosDTO) {
+        ConviteDTO dto = service.atualizarConvidados(idConvite, convidadosDTO);
+        return ResponseEntity.ok(dto);
     }
 
     @DeleteMapping("/{id}")

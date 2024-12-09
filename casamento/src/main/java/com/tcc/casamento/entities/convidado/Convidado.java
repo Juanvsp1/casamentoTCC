@@ -27,4 +27,9 @@ public class Convidado {
     @JoinColumn(name = "convite_id", referencedColumnName = "idConvite")
     private Convite convite;
 
+    public Convidado(String nome, Boolean statusRSVP, Convite convite) {
+        this.nome = nome;
+        this.statusRSVP = statusRSVP;
+        this.convite = convite;
+    }
 }

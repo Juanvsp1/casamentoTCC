@@ -26,4 +26,10 @@ public class Fornecedor {
     @ManyToOne
     @JoinColumn(name = "casamento_id", referencedColumnName = "idCasamento")
     private Casamento casamento;
+
+    public Fornecedor(Long id, String nome, String tipoServico) {
+        this.idFornecedor = id;
+        this.nome = nome;
+        this.tipoServico = tipoServico;
+    }
 }

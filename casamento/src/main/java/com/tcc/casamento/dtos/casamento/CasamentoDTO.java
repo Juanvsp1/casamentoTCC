@@ -47,13 +47,15 @@ public class CasamentoDTO {
 
     public CasamentoDTO(Casamento entity, Tema tema){
         this(entity);
-        this.tema = getTema();
+        this.tema = new TemaDTO(tema);
     }
 
     public CasamentoDTO(Casamento entity, Set<Fornecedor> fornecedores, Orcamento orcamento, Tema tema, Set<Convite> convites) {
         this(entity);
-        this.orcamento = getOrcamento();
-        this.tema = getTema();
+        this.orcamento = orcamento != null ? new OrcamentoDTO(orcamento) : null;
+        this.tema = tema != null ? new TemaDTO(tema) : null;
+
+
         fornecedores.forEach(fornecedor -> this.fornecedores.add(new FornecedorDTO(fornecedor)));
         convites.forEach(convite -> this.convites.add(new ConviteDTO(convite)));
     }
