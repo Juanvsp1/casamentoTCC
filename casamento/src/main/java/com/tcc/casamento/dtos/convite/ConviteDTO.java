@@ -20,6 +20,7 @@ public class ConviteDTO {
 
     private Long idConvite;
     private String statusEnvio;
+    private Long idCasamento;
     private List<ConvidadoDTO> convidados = new ArrayList<>();
 
     public ConviteDTO(Convite entity){
@@ -31,4 +32,12 @@ public class ConviteDTO {
         this(entity);
         convidados.forEach(convidado -> this.convidados.add(new ConvidadoDTO(convidado)));
     }
+/*
+    public ConviteDTO(Convite entity, Set<Convidado> convidados, Long idConvite) {
+        this(entity);
+        convidados.forEach(convidado -> this.convidados.add(new ConvidadoDTO(convidado)));
+        this.idCasamento = entity.getCasamento() != null ? entity.getCasamento().getIdCasamento() : null;
+    }
+
+ */
 }

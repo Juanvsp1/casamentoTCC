@@ -118,6 +118,62 @@
 					"response": []
 				},
 				{
+					"name": "atualizarCasamentoEOrcamento",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"idOrcamento\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/casamentos/1/orcamento",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"casamentos",
+								"1",
+								"orcamento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "atualizarCasamentoEFornecedor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n[\r\n  {\r\n    \"idFornecedor\": 1\r\n  },  \r\n  {\r\n    \"idFornecedor\": 2\r\n  },\r\n  {\r\n    \"idFornecedor\": 3\r\n  }\r\n  \r\n]\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/casamentos/1/fornecedores",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"casamentos",
+								"1",
+								"fornecedores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "updateCasamento",
 					"request": {
 						"method": "PUT",
@@ -254,7 +310,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"casamento\":{\r\n        \"id\": 1\r\n    },\r\n    \"status\": \"PENDENTE\"\r\n}",
+							"raw": "{\r\n  \"statusEnvio\": \"Enviado\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -294,6 +350,63 @@
 							],
 							"path": [
 								"convites",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateConviteEConvidado",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"nome\": \"João Silva\",\r\n        \"statusRSVP\": true\r\n    }\r\n]\r\n/*\r\n\r\n {\r\n    \"nome\": \"João Silva\",\r\n    \"statusRSVP\": true\r\n  },\r\n  {\r\n    \"nome\": \"Maria Oliveira\",\r\n    \"statusRSVP\": false\r\n  },\r\n  {\r\n    \"nome\": \"Carlos Souza\",\r\n    \"statusRSVP\": true\r\n  }\r\n\r\n\r\n\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/convites/1/convidados",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"convites",
+								"1",
+								"convidados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateConviteEcasamento",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"nome\": \"João Silva\",\r\n        \"statusRSVP\": true\r\n    }\r\n]\r\n/*\r\n\r\n {\r\n    \"nome\": \"João Silva\",\r\n    \"statusRSVP\": true\r\n  },\r\n  {\r\n    \"nome\": \"Maria Oliveira\",\r\n    \"statusRSVP\": false\r\n  },\r\n  {\r\n    \"nome\": \"Carlos Souza\",\r\n    \"statusRSVP\": true\r\n  }\r\n\r\n\r\n\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/convites/1/casamento/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"convites",
+								"1",
+								"casamento",
 								"1"
 							]
 						}
@@ -566,7 +679,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Natã\",\r\n    \"email\": \"teste@email,com\",\r\n    \"convite\":{\r\n        \"id\": 1\r\n    }\r\n}",
+							"raw": "/*\r\n{\r\n    \"nome\": \"Buffet Elegância\",\r\n    \"tipoServico\": \"Buffet\"\r\n}\r\n{\r\n    \"nome\": \"Decorações Flores do Campo\",\r\n    \"tipoServico\": \"Decoração\"\r\n}\r\n{\r\n    \"nome\": \"Música ao Vivo Harmonia\",\r\n    \"tipoServico\": \"Música\"\r\n}\r\n*/\r\n{\r\n    \"nome\": \"Música ao Vivo Harmonia\",\r\n    \"tipoServico\": \"Música\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -606,6 +719,38 @@
 							],
 							"path": [
 								"fornecedores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateFornecedores Copy",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/fornecedores/3/casamento/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"fornecedores",
+								"3",
+								"casamento",
 								"1"
 							]
 						}
@@ -722,7 +867,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"casamento\":{\r\n        \"id\": 1\r\n    },\r\n    \"status\": \"PENDENTE\"\r\n}",
+							"raw": "{\r\n  \"total\": 60000.00\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

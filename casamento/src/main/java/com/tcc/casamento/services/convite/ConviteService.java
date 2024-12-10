@@ -2,8 +2,10 @@ package com.tcc.casamento.services.convite;
 
 import com.tcc.casamento.dtos.convidado.ConvidadoDTO;
 import com.tcc.casamento.dtos.convite.ConviteDTO;
+import com.tcc.casamento.entities.casamento.Casamento;
 import com.tcc.casamento.entities.convidado.Convidado;
 import com.tcc.casamento.entities.convite.Convite;
+import com.tcc.casamento.repositories.casamento.CasamentoRepository;
 import com.tcc.casamento.repositories.convite.ConviteRepository;
 import com.tcc.casamento.services.exception.DatabaseException;
 import com.tcc.casamento.services.exception.ResourceNotFoundException;
@@ -24,6 +26,9 @@ public class ConviteService {
 
     @Autowired
     private ConviteRepository conviteRepository;
+
+    @Autowired
+    private CasamentoRepository casamentoRepository;
 
     @Transactional(readOnly = true)
     public Page<ConviteDTO> findAllPaged(Pageable pageable) {
@@ -89,6 +94,27 @@ public class ConviteService {
 
         return new ConviteDTO(entity);
     }
+
+    @Transactional
+    public ConviteDTO associarConviteACasamento(Long idConvite, Long idCasamento) {
+        // Buscar o convite pelo ID
+        Convite convite = conviteRepository.findById(idConvite)
+                .orElseThrow(() -> new ResourceNotFoundException("Convite não encontrado com ID: " + idConvite));
+
+        // Buscar o casamento pelo ID
+        Casamento casamento = casamentoRepository.findById(idCasamento)
+                .orElseThrow(() -> new ResourceNotFoundException("Casamento não encontrado com ID: " + idCasamento));
+
+        // Associar o convite ao casamento
+        convite.setCasamento(casamento);
+
+        // Salvar a atualização no banco de dados
+        convite = conviteRepository.save(convite);
+
+        // Retornar o DTO atualizado
+        return new ConviteDTO(convite);
+    }
+
 
 
     private void copyDtoToEntity(ConviteDTO dto, Convite entity) {

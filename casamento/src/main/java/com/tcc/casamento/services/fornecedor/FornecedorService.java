@@ -1,7 +1,9 @@
 package com.tcc.casamento.services.fornecedor;
 
 import com.tcc.casamento.dtos.fornecedor.FornecedorDTO;
+import com.tcc.casamento.entities.casamento.Casamento;
 import com.tcc.casamento.entities.fornecedor.Fornecedor;
+import com.tcc.casamento.repositories.casamento.CasamentoRepository;
 import com.tcc.casamento.repositories.fornecedor.FornecedorRepository;
 import com.tcc.casamento.services.exception.DatabaseException;
 import com.tcc.casamento.services.exception.ResourceNotFoundException;
@@ -19,6 +21,9 @@ public class FornecedorService {
 
     @Autowired
     private FornecedorRepository fornecedorRepository;
+
+    @Autowired
+    private CasamentoRepository casamentoRepository;
 
     @Transactional(readOnly = true)
     public Page<FornecedorDTO> findAllPaged(Pageable pageable) {
@@ -64,6 +69,26 @@ public class FornecedorService {
         } catch (DataIntegrityViolationException e) {
             throw new DatabaseException("Falha de integridade referencial");
         }
+    }
+
+    @Transactional
+    public FornecedorDTO atualizarFornecedorCasamento(Long idFornecedor, Long idCasamento) {
+        // Busca o fornecedor no banco de dados
+        Fornecedor fornecedor = fornecedorRepository.findById(idFornecedor)
+                .orElseThrow(() -> new ResourceNotFoundException("Fornecedor não encontrado com ID: " + idFornecedor));
+
+        // Busca o casamento no banco de dados
+        Casamento casamento = casamentoRepository.findById(idCasamento)
+                .orElseThrow(() -> new ResourceNotFoundException("Casamento não encontrado com ID: " + idCasamento));
+
+        // Associa o casamento ao fornecedor
+        fornecedor.setCasamento(casamento);
+
+        // Salva a atualização no banco de dados
+        fornecedor = fornecedorRepository.save(fornecedor);
+
+        // Retorna o DTO atualizado
+        return new FornecedorDTO(fornecedor);
     }
 
     private void copyDtoToEntity(FornecedorDTO dto, Fornecedor entity) {

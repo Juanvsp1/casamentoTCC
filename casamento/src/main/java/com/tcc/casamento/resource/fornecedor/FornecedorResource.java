@@ -53,6 +53,15 @@ public class FornecedorResource {
         return ResponseEntity.ok().body(dto);
     }
 
+    @PutMapping("/{id}/casamento/{idCasamento}")
+    public ResponseEntity<FornecedorDTO> atualizarFornecedorCasamento(
+            @PathVariable Long id,         // ID do fornecedor
+            @PathVariable Long idCasamento // ID do casamento
+    ) {
+        FornecedorDTO dto = service.atualizarFornecedorCasamento(id, idCasamento);
+        return ResponseEntity.ok().body(dto);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteFornecedor(@PathVariable Long id) {
         service.delete(id);

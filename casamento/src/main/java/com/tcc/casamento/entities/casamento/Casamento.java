@@ -37,13 +37,13 @@ public class Casamento {
     @JoinColumn(name = "id_tema", referencedColumnName = "idTema")
     private Tema tema;
 
-    @OneToMany(mappedBy = "casamento", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "casamento", fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     Set<Fornecedor> fornecedores = new HashSet<>();
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "orcamento_id", referencedColumnName = "idOrcamento")
     private Orcamento orcamento;
 
-    @OneToMany(mappedBy = "casamento", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "casamento",  fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     Set<Convite> convites = new HashSet<>();
 }
