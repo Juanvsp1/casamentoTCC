@@ -2,7 +2,9 @@ package com.tcc.casamento.services.convidado;
 
 import com.tcc.casamento.dtos.convidado.ConvidadoDTO;
 import com.tcc.casamento.entities.convidado.Convidado;
+import com.tcc.casamento.entities.convite.Convite;
 import com.tcc.casamento.repositories.convidado.ConvidadoRepository;
+import com.tcc.casamento.repositories.convite.ConviteRepository;
 import com.tcc.casamento.services.exception.DatabaseException;
 import com.tcc.casamento.services.exception.ResourceNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
@@ -19,6 +21,9 @@ public class ConvidadoService {
 
     @Autowired
     private ConvidadoRepository convidadoRepository;
+
+    @Autowired
+    private ConviteRepository conviteRepository;
 
     @Transactional(readOnly = true)
     public Page<ConvidadoDTO> findAllPaged(Pageable pageable) {
@@ -65,6 +70,27 @@ public class ConvidadoService {
             throw new DatabaseException("Falha de integridade referencial");
         }
     }
+
+    @Transactional
+    public ConvidadoDTO associarConvidadoAoConvite(Long idConvidado, Long idConvite) {
+        // Busca o convidado no banco de dados
+        Convidado convidado = convidadoRepository.findById(idConvidado)
+                .orElseThrow(() -> new ResourceNotFoundException("Convidado não encontrado com ID: " + idConvidado));
+
+        // Busca o convite no banco de dados
+        Convite convite = conviteRepository.findById(idConvite)
+                .orElseThrow(() -> new ResourceNotFoundException("Convite não encontrado com ID: " + idConvite));
+
+        // Associa o convite ao convidado
+        convidado.setConvite(convite);
+
+        // Salva o convidado atualizado
+        convidado = convidadoRepository.save(convidado);
+
+        // Retorna o DTO atualizado
+        return new ConvidadoDTO(convidado);
+    }
+
 
     private void copyDtoToEntity(ConvidadoDTO dto, Convidado entity) {
         entity.setNome(dto.getNome());

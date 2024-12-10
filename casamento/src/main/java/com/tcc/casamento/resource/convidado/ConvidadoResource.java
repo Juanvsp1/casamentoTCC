@@ -51,6 +51,14 @@ public class ConvidadoResource {
         return ResponseEntity.ok().body(dto);
     }
 
+    @PutMapping("/{id}/convite/{idConvite}")
+    public ResponseEntity<ConvidadoDTO> associarConvidadoAoConvite(
+            @PathVariable Long id,
+            @PathVariable Long idConvite) {
+        ConvidadoDTO dto = service.associarConvidadoAoConvite(id, idConvite);
+        return ResponseEntity.ok().body(dto);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteConvidado(@PathVariable Long id) {
         service.delete(id);
