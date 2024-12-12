@@ -30,8 +30,48 @@ O **Sistema de Casamento** é uma aplicação desenvolvida para facilitar a orga
 
 ## Instalação e Configuração
 
-### Backend
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/seu-usuario/sistema-casamento.git
-   cd sistema-casamento/backend
+---
+
+## Guia de Requisições para o Cliente
+
+Aqui está o passo a passo para realizar as ações no sistema:
+
+### 1. Registro e Login
+- **Ação:** Registrar-se ou fazer login no sistema.
+- **Endpoint:** `POST /api/usuario/login`
+- **Descrição:** O cliente informa e-mail e senha para acessar a aplicação.
+
+### 2. Cadastro de Casamento
+- **Ação:** Cadastrar ou atualizar informações do casamento.
+- **Endpoint:** `POST /api/casamento`
+- **Descrição:** Inserir informações como data, local e tema do casamento.
+
+### 3. Gerenciamento de Convidados
+- **Ação:** Adicionar convidados ao evento.
+- **Endpoint:** `POST /api/convidados`
+- **Descrição:** Forneça o nome e o status de presença (RSVP) dos convidados.
+
+### 4. Envio de Convites
+- **Ação:** Enviar convites para os convidados.
+- **Endpoint:** `POST /api/convites/enviar`
+- **Descrição:** Notifica os convidados com detalhes do evento.
+
+### 5. Gerenciamento de Fornecedores
+- **Ação:** Registrar fornecedores e serviços contratados.
+- **Endpoint:** `POST /api/fornecedores`
+- **Descrição:** Adicionar informações dos fornecedores, como nome e tipo de serviço.
+
+### 6. Controle de Orçamento
+- **Ação:** Adicionar ou atualizar dados do orçamento.
+- **Endpoint:** `POST /api/orcamento`
+- **Descrição:** Inserir custos e controlar as despesas.
+
+### 7. Monitoramento do Evento
+- **Ação:** Acompanhar o status do planejamento.
+- **Endpoint:** `GET /api/evento/status`
+- **Descrição:** Verificar o progresso geral, como confirmações de presença e orçamento.
+
+---
+
+Com este guia, o cliente poderá navegar facilmente pelo sistema e utilizar todas as funcionalidades disponíveis. Caso tenha dúvidas, entre em contato com o suporte!
+
