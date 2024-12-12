@@ -18,7 +18,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6Im5hdGFuQGhvdG1haWwuY29tIiwiZXhwIjoxNzMzODY5ODE1fQ._b28uQN1GpeqekLxH1OgS6V4qKZ2Irj6hGuy6G3Gea0",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6ImNsYXJpQGhvdG1haWwuY29tIiwiZXhwIjoxNzM0MDM5NTAzfQ.JarqXEFrGuPCaxumlzQPPE1hHFeRdlsAAfncSoTlZok",
 									"type": "string"
 								}
 							]
@@ -81,7 +81,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6Im5hdGFuQGhvdG1haWwuY29tIiwiZXhwIjoxNzMzODY5ODE1fQ._b28uQN1GpeqekLxH1OgS6V4qKZ2Irj6hGuy6G3Gea0",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6ImNsYXJpQGhvdG1haWwuY29tIiwiZXhwIjoxNzM0MDM5NTAzfQ.JarqXEFrGuPCaxumlzQPPE1hHFeRdlsAAfncSoTlZok",
 									"type": "string"
 								}
 							]
@@ -90,7 +90,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "\r\n{\r\n    \"data\": \"2024-12-06\",\r\n    \"local\": \"Praia do Forte\"\r\n}\r\n",
+							"raw": "\r\n{\r\n    \"data\": \"2024-12-06\",\r\n    \"local\": \"Praia do sossego\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -112,6 +112,16 @@
 				{
 					"name": "atualizarCasamentoETema",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6ImNsYXJpQGhvdG1haWwuY29tIiwiZXhwIjoxNzM0MDM5NTAzfQ.JarqXEFrGuPCaxumlzQPPE1hHFeRdlsAAfncSoTlZok",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -140,6 +150,16 @@
 				{
 					"name": "atualizarCasamentoEOrcamento",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6ImNsYXJpQGhvdG1haWwuY29tIiwiZXhwIjoxNzM0MDM5NTAzfQ.JarqXEFrGuPCaxumlzQPPE1hHFeRdlsAAfncSoTlZok",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -168,6 +188,16 @@
 				{
 					"name": "atualizarCasamentoEFornecedor",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6ImNsYXJpQGhvdG1haWwuY29tIiwiZXhwIjoxNzM0MDM5NTAzfQ.JarqXEFrGuPCaxumlzQPPE1hHFeRdlsAAfncSoTlZok",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -326,6 +356,16 @@
 				{
 					"name": "InsertConvite",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6ImNsYXJpQGhvdG1haWwuY29tIiwiZXhwIjoxNzM0MDM5NTAzfQ.JarqXEFrGuPCaxumlzQPPE1hHFeRdlsAAfncSoTlZok",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -379,6 +419,16 @@
 				{
 					"name": "updateConviteEConvidado",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6ImNsYXJpQGhvdG1haWwuY29tIiwiZXhwIjoxNzM0MDM5NTAzfQ.JarqXEFrGuPCaxumlzQPPE1hHFeRdlsAAfncSoTlZok",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -407,6 +457,16 @@
 				{
 					"name": "updateConviteEcasamento",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6ImNsYXJpQGhvdG1haWwuY29tIiwiZXhwIjoxNzM0MDM5NTAzfQ.JarqXEFrGuPCaxumlzQPPE1hHFeRdlsAAfncSoTlZok",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -539,11 +599,21 @@
 				{
 					"name": "InsertConvidado",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6ImNsYXJpQGhvdG1haWwuY29tIiwiZXhwIjoxNzM0MDM5NTAzfQ.JarqXEFrGuPCaxumlzQPPE1hHFeRdlsAAfncSoTlZok",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Natã\",\r\n    \"email\": \"teste@email,com\",\r\n    \"convite\":{\r\n        \"id\": 1\r\n    }\r\n}",
+							"raw": "{\r\n    \"nome\": \"Natã\",\r\n    \"convite\":{\r\n        \"id\": 1\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -724,11 +794,21 @@
 				{
 					"name": "InsertFornecedores",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6ImNsYXJpQGhvdG1haWwuY29tIiwiZXhwIjoxNzM0MDM5NTAzfQ.JarqXEFrGuPCaxumlzQPPE1hHFeRdlsAAfncSoTlZok",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "/*\r\n{\r\n    \"nome\": \"Buffet Elegância\",\r\n    \"tipoServico\": \"Buffet\"\r\n}\r\n{\r\n    \"nome\": \"Decorações Flores do Campo\",\r\n    \"tipoServico\": \"Decoração\"\r\n}\r\n{\r\n    \"nome\": \"Música ao Vivo Harmonia\",\r\n    \"tipoServico\": \"Música\"\r\n}\r\n*/\r\n{\r\n    \"nome\": \"Música ao Vivo Harmonia\",\r\n    \"tipoServico\": \"Música\"\r\n}",
+							"raw": "/*\r\n{\r\n    \"nome\": \"Buffet Elegância\",\r\n    \"tipoServico\": \"Buffet\"\r\n}\r\n{\r\n    \"nome\": \"Decorações Flores do Campo\",\r\n    \"tipoServico\": \"Decoração\"\r\n}\r\n{\r\n    \"nome\": \"Música ao Vivo Harmonia\",\r\n    \"tipoServico\": \"Música\"\r\n}\r\n*/\r\n{\r\n    \"nome\": \"Buffet Elegância\",\r\n    \"tipoServico\": \"Buffet\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -780,6 +860,16 @@
 						"disabledSystemHeaders": {}
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6ImNsYXJpQGhvdG1haWwuY29tIiwiZXhwIjoxNzM0MDM5NTAzfQ.JarqXEFrGuPCaxumlzQPPE1hHFeRdlsAAfncSoTlZok",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -792,13 +882,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/fornecedores/3/casamento/1",
+							"raw": "{{host}}/fornecedores/1/casamento/1",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"fornecedores",
-								"3",
+								"1",
 								"casamento",
 								"1"
 							]
@@ -912,11 +1002,21 @@
 				{
 					"name": "InsertOrcamento",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6ImNsYXJpQGhvdG1haWwuY29tIiwiZXhwIjoxNzM0MDM5NTAzfQ.JarqXEFrGuPCaxumlzQPPE1hHFeRdlsAAfncSoTlZok",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"total\": 60000.00\r\n}",
+							"raw": "{\r\n  \"total\": 70000.00\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1080,6 +1180,16 @@
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6ImNsYXJpQGhvdG1haWwuY29tIiwiZXhwIjoxNzM0MDM5NTAzfQ.JarqXEFrGuPCaxumlzQPPE1hHFeRdlsAAfncSoTlZok",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
