@@ -16,7 +16,7 @@ public class CorsConfig implements WebMvcConfigurer {
                 registry.addMapping("/**") // Aplica a todos os endpoints
                         .allowedOrigins("*") // Origem do seu front
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Métodos permitidos
-                        .allowCredentials(true);
+                        .allowCredentials(false);
             }
         };
     }
