@@ -1,0 +1,160 @@
+header{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 999;
+    background: transparent;
+    padding: 20px 18%;
+}
+
+header .logo{
+    display: flex;
+    align-items: center;
+    margin-top: 2px;
+    width: 280px;
+}
+
+header .navbar{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    /* text-transform: uppercase; */
+
+}
+
+.navbar-items{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.navbar .navbar-links{
+    position: relative;
+    color: #efefef;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+.navbar .navbar-links:hover{
+    border-bottom: .2rem solid #AB8965;
+    padding-bottom: .5rem;
+}
+
+.menu-icon{
+    display: none;
+}
+
+/*======================= Home ======================= */
+.home{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px 18%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-image:linear-gradient(rgba(0,0,0,0.58),rgba(0, 0, 0, 0.58)), url(../assets/home-bg.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.home .content{
+    z-index: 888;
+    color:#ffffffcc;
+    width: 70%;
+}
+
+.home .content h1{
+    font-size: 64px;
+    font-weight: 900;
+    margin-bottom: 24px;
+    letter-spacing: 2px;
+}
+
+.home .content p{
+    margin-bottom: 40px;
+    line-height: 22px;
+}
+
+.home .content .btn-home{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #AB8965;
+    border-radius: 5px;
+    padding:12px 30px;
+    cursor: pointer;
+}
+
+.home .content .btn-home a{
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #efefef;
+}
+
+.home .content .btn-home i{
+    font-size: 20px;
+    color: #efefef;
+}
+
+/*======================= Mobile e Tablet ======================= */
+@media (max-width: 1023px){
+    header{
+        padding: 20px 30px;
+    }
+
+    header .logo {
+        width: 230px;
+
+    }
+
+    header .navbar{
+        display: none;
+    }
+
+    .menu-icon{
+        display: block;
+        cursor: pointer;
+    }
+
+    .menu-icon i {
+        font-size: 24px;
+        color: #e3e2e2;
+    }
+
+    .home{
+        background-image:linear-gradient(rgba(0,0,0,0.58),rgba(0, 0, 0, 0.58)), url(../assets/home-mobile.png);
+        padding: 100px 30px;
+    }
+
+    .home .content h1{
+        font-size: 57px;
+    } 
+}
+
+/*======================= Desktop ======================= */
+@media screen and (min-width: 1024px) and (max-width: 1380px){
+    header{
+        padding: 20px 60px;
+    }
+
+    header .logo{
+        width: 230px;
+    } 
+
+    .home {
+        padding: 0 60px;
+    }
+
+    .home .content h1{
+        font-size: 57px;
+    }
+}

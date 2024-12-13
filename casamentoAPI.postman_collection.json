@@ -1419,7 +1419,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"natan@hotmail.com\",\r\n    \"firstName\": \"Nathan\",\r\n    \"lastName\": \"Oliveira\",\r\n    \"password\": \"natan123\",\r\n    \"role\": \"USER\"\r\n}\r\n",
+							"raw": "{\r\n    \"email\": \"clari@hotmail.com\",\r\n    \"firstName\": \"clari\",\r\n    \"lastName\": \"Oliveira\",\r\n    \"password\": \"clari123\",\r\n    \"role\": \"ADMIN\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1458,7 +1458,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"natan@hotmail.com\",\r\n    \"password\": \"natan123\"\r\n}\r\n",
+							"raw": "{\r\n    \"email\": \"clari@hotmail.com\",\r\n    \"password\": \"clari123\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.min.css"
+    integrity="sha512-T7lIYojLrqj7eBrV1NvUSZplDBi8mFyIEGFGdox8Bic92Col3GVrscbJkL37AJoDmF2iAh81fRpO4XZukI6kbA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Css -->
+    <title>Casamento sem surpresa</title>
+    <link rel="stylesheet" href="../styles/signup.css">
+</head>
+<body>
+    <main class="container">
+        <div class="left-img"></div>
+
+        <div class="right-create">
+            <div class="back-menu" href="../index.html">
+                <a href="../index.html">
+                    <i class="ri-arrow-left-circle-line"></i>
+                    <span>Voltar ao Início</span>
+                </a>
+            </div>
+
+            <div class="form-create">
+                <h1>Crie sua conta</h1>
+                <form id="formRegister">
+                    <div class="input-box">
+                        <label for="text">Nome</label>
+                        <input type="text" id="registerFirstName" name="text" placeholder="Digite o seu nome" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="text">Sobrenome</label>
+                        <input type="text" id="registerLastName" name="text" placeholder="Digite o seu sobrenome" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="email">E-mail</label>
+                        <input type="email=" id="registerEmail" name="email" placeholder="Digite o seu e-mail" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="password">Senha</label>
+                        <input type="password" id="registerPassword" name="password" placeholder="Digite a sua senha" required>
+                    </div>
+                    <button class="btn-create">Cadastrar</button>
+                    <div class="input-alter">
+                        <p>Dúvidas? <a href="#">fale conosco</a></p>
+                    </div>    
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="../scriptRegister.js"></script>
+</body>
+</html>

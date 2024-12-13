@@ -1,0 +1,145 @@
+@import url(../styles/styles.css);
+
+.container{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: #fbf4ee;
+}
+
+/*======================= Left ======================= */
+.container .left-img{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-image: url(../assets/img-signin.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/*======================= Right ======================= */
+.container .right-create{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+.container .right-create .back-menu{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+
+.container .right-create .back-menu a{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.container .right-create .back-menu i{
+    font-size: 22px;
+    color: #484848;
+}
+
+.container .right-create .back-menu span{
+    font-size: 14px;
+    color: #484848;
+}
+
+.right-create .form-create {
+    width: 380px;
+}
+
+.right-create .form-create h1 {
+    color: #323232;
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.right-create .form-create .input-box {
+    margin-bottom: 10px;
+}
+
+.input-box {
+    margin-bottom: 2rem;
+    font-size: 12px;
+    font-weight: 700;
+    color: #000000c0;;
+}
+
+.right-create .form-create .input-box input {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 0.5rem 0;
+    border: none;
+    font-size: 12px;
+    box-shadow: 1px 1px 6px #0000001c;
+    border-radius: 5px;
+}
+
+.right-create .form-create .input-box input:hover{
+    background-color: #eeeeee75;
+}
+
+.right-create .form-login .input-box span{
+    position: relative;
+}
+
+.right-create .form-create .input-box span i{
+    position: absolute;
+    font-size: 14px;
+    top: 3px;
+    right: 20px;
+}
+
+.right-create .form-create .btn-create {
+    width: 100%;
+    padding: 9px 20px;
+    margin-top: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    outline: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #AB8965;
+    cursor: pointer;
+}
+
+.right-create .form-create .input-alter{
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.right-create .form-create .input-alter p {
+    font-weight: 400;
+    font-size: 14px;
+    color: #999999;
+}
+
+.right-create .form-create .input-alter a{
+    font-weight: 600;
+    color: #5d5d5d;
+}
+
+
+/*======================= Mobile e Tablet ======================= */
+@media (max-width: 1023px){
+    .container .left-img{
+        display: none;
+    }
+
+    .container .right-create .back-menu{
+        top: 40px;
+        right: 30px;
+    }
+}
